@@ -1,4 +1,5 @@
-#Read me
+# Read me
+
 Modo de uso
 
 Ejecutar el archivo 'get_pages.html' con el buscador preferido. Carga una serie de páginas en una misma. Está pensado para explorar artículos o páginas dentro de una 'url' master. El ejemplo utilizado es la carga de artículos de elpais.es. 
