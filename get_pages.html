@@ -1,0 +1,47 @@
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+</body>
+
+<script>
+
+// AJUSTE: la variable ticket incluye una lista de todos los tickets que queremos imprimir
+
+var urlMaster = 'https://elpais.com/politica/2020/01/22/actualidad/' // Vamos a imprimir una serie de páginas dentro de una url 
+
+var tickets = ['1579752483_950317.html', '1579724696_728420.html']; // id para 2 artículos de política del 22 de enero de 2020
+
+var length = tickets.length;
+
+function parse(str) {
+    var args = [].slice.call(arguments, 1),
+        i = 0;
+
+    return str.replace(/%s/g, () => args[i++]);
+}
+
+function loadOtherPage(link) {
+        $("<iframe class='printpage'>") // creamos un elemento iframe en el cuerpo vacío del html
+            .attr("src", link) // dirigimos el iframe a nuestra url
+            .attr("style", "width:100vw; height:2140px; max-height: 100%;") // AJUSTES: Tenemos que predefinir el tamaño de nuestro iframe (se puede cambiar el código para ajustarlo de forma automática). 1070px es el alto de una página en pdf (aprox), Sustituir el valor en 'height' para ajustar el número de páginas por ticket.
+            .appendTo("body");
+    }
+
+for (i = 0; i < length; i++) {
+
+link_loop = parse(urlMaster,tickets[i]);
+
+loadOtherPage(link_loop);
+
+$(document).ready(function () {
+        window.print();
+    });
+}
+
+</script>
+
+</html>
