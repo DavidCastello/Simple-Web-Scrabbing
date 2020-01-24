@@ -19,11 +19,11 @@ var num_parts = cut_text.length;
 
 for (i = 1; i < num_parts; i++) {
 
-	tickets[i-1] = cut_text[i].substring(212, 215); // la subcadena [i+1] del inner HTML contiene el número de comentarios entre los índices 212 y 215 (verificar en caso de fallo)
+	tickets[i-1] = cut_text[i].substring(211, 214); // la subcadena [i+1] del inner HTML contiene el número de comentarios entre los índices 212 y 215 (verificar en caso de fallo)
 
 }
 
 var scrabbed = tickets.toString();
 
-console.log("Total occurences:", tickets.length);
-console.log("LIST:", scrabbed);
+console.log("Total artículos:", tickets.length);
+console.log("Número de comentarios en orden sucesivo de ocurrencia:", scrabbed);
